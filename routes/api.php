@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ApiAuthController;
+use App\Http\Controllers\ApiTaskController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -22,9 +23,9 @@ Route::post('/register',[ApiAuthController::class, 'register']);
 Route::post('/login',[ApiAuthController::class, 'login']);
 
 
-Route::post('/tasks',[ApiAuthController::class, 'createTask']);
-Route::get('/tasks',[ApiAuthController::class, 'getAllTasks']);
-Route::get('/tasks/{taskId}',[ApiAuthController::class, 'getTaskById']);
-Route::put('/tasks/{taskId}',[ApiAuthController::class, 'updateTask']);
-Route::delete('/tasks/{taskId}',[ApiAuthController::class, 'deleteTask']);
+Route::post('/tasks',[ApiTaskController::class, 'createTask']);
+Route::get('/tasks',[ApiTaskController::class, 'getAllTasks']);
+Route::get('/tasks/{taskId}',[ApiTaskController::class, 'getTaskById']);
+Route::put('/tasks/{taskId}',[ApiTaskController::class, 'updateTaskById']);
+Route::delete('/tasks/{taskId}',[ApiTaskController::class, 'deleteTaskById']);
 
