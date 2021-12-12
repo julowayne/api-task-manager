@@ -23,9 +23,9 @@ Route::post('/register',[ApiAuthController::class, 'register']);
 Route::post('/login',[ApiAuthController::class, 'login']);
 
 
-Route::post('/tasks',[ApiTaskController::class, 'createTask']);
-Route::get('/tasks',[ApiTaskController::class, 'getAllTasks']);
-Route::get('/tasks/{taskId}',[ApiTaskController::class, 'getTaskById']);
-Route::put('/tasks/{taskId}',[ApiTaskController::class, 'updateTaskById']);
-Route::delete('/tasks/{taskId}',[ApiTaskController::class, 'deleteTaskById']);
+Route::middleware('auth:sanctum')->post('/tasks',[ApiTaskController::class, 'createTask']);
+Route::middleware('auth:sanctum')->get('/tasks',[ApiTaskController::class, 'getAllTasks']);
+Route::middleware('auth:sanctum')->get('/tasks/{taskId}',[ApiTaskController::class, 'getTaskById']);
+Route::middleware('auth:sanctum')->put('/tasks/{taskId}',[ApiTaskController::class, 'updateTaskById']);
+Route::middleware('auth:sanctum')->delete('/tasks/{taskId}',[ApiTaskController::class, 'deleteTaskById']);
 
